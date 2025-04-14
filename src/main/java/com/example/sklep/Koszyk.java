@@ -35,7 +35,7 @@ public class Koszyk {
         Optional<PozycjawKoszyku> oPozycjawKoszyku = getPozycjawKoszykuByPrzedmiot(przedmiot);
         if(oPozycjawKoszyku.isPresent()){
             PozycjawKoszyku pozycjawKoszyku = oPozycjawKoszyku.get();
-            pozycjawKoszyku.zmniejszLicznik(); // Odejmujemy 1 od liczby produktów w koszyku
+            pozycjawKoszyku.zmniejszLicznik();
             if(pozycjawKoszyku.ZeroPrzedmioty()){
                 usunPrzedmioty(przedmiot);
             }

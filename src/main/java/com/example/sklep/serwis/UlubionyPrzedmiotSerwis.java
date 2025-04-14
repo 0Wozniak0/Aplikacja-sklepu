@@ -21,7 +21,7 @@ public class UlubionyPrzedmiotSerwis {
     }
 
     public void dodajUlubionyPrzedmiot(Uzytkownik uzytkownik, Przedmiot przedmiot) {
-        if (!czyPrzedmiotIstnieje(uzytkownik, przedmiot.getId())) { // Sprawdzenie, czy przedmiot jest już ulubiony
+        if (!czyPrzedmiotIstnieje(uzytkownik, przedmiot.getId())) {
             UlubionyPrzedmiot ulubionyPrzedmiot = new UlubionyPrzedmiot();
             ulubionyPrzedmiot.setUzytkownik(uzytkownik);
             ulubionyPrzedmiot.setPrzedmiot(przedmiot);

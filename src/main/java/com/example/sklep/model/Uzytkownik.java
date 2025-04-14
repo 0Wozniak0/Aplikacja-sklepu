@@ -25,7 +25,6 @@ public class Uzytkownik {
         this.id = id;
     }
 
-    // Getter i setter dla login
     public String getLogin() {
         return login;
     }
@@ -34,7 +33,6 @@ public class Uzytkownik {
         this.login = login;
     }
 
-    // Getter i setter dla haslo
     public String getHaslo() {
         return haslo;
     }
@@ -43,7 +41,6 @@ public class Uzytkownik {
         this.haslo = haslo;
     }
 
-    // Getter i setter dla rola
     public String getRola() {
         return rola;
     }

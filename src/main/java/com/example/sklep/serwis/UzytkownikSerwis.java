@@ -14,7 +14,7 @@ public class UzytkownikSerwis {
 
     public void zarejestruj(Uzytkownik uzytkownik) {
         uzytkownik.setHaslo(haszujHaslo(uzytkownik.getHaslo()));
-        uzytkownik.setRola("użytkownik"); // Ustawienie roli na "użytkownik"
+        uzytkownik.setRola("użytkownik");
         uzytkownikDane.save(uzytkownik);
     }
 
@@ -26,25 +26,22 @@ public class UzytkownikSerwis {
         return null;
     }
 
-    // Nowa metoda do sprawdzania, czy login już istnieje
     public boolean czyLoginIstnieje(String login) {
         Optional<Uzytkownik> uzytkownik = uzytkownikDane.findByLogin(login);
-        return uzytkownik.isPresent(); // Zwraca true, jeśli login istnieje, w przeciwnym razie false
+        return uzytkownik.isPresent();
     }
 
     public void zaktualizujLoginIHaslo(Uzytkownik uzytkownik, String nowyLogin, String noweHaslo) {
         uzytkownik.setLogin(nowyLogin);
-        uzytkownik.setHaslo(haszujHaslo(noweHaslo)); // Haszowanie nowego hasła
+        uzytkownik.setHaslo(haszujHaslo(noweHaslo));
         uzytkownikDane.save(uzytkownik);
     }
 
     private String haszujHaslo(String haslo) {
-        // Zwróć haszowane hasło
         return haslo;
     }
 
     private boolean sprawdzHaslo(String haslo, String hasloZBazy) {
-        // Implementacja sprawdzania hasła
         return haslo.equals(hasloZBazy);
     }
 }

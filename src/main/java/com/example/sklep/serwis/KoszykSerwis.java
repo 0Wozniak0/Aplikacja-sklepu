@@ -28,7 +28,6 @@ public class KoszykSerwis {
         return przedmiotDane.findAll();
     }
 
-    // Nowa metoda do wyszukiwania przedmiotów na podstawie zapytania
     public List<Przedmiot> searchPrzedmioty(String query) {
         return przedmiotDane.findAll().stream()
                 .filter(przedmiot -> przedmiot.getNazwa().toLowerCase().contains(query.toLowerCase()))

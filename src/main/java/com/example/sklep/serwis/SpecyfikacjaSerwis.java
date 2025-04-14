@@ -49,6 +49,6 @@ public class SpecyfikacjaSerwis {
                 .orElseThrow(() -> new RuntimeException("Specyfikacja nie znaleziona"));
         Long przedmiotId = specyfikacja.getPrzedmiotId();
         specyfikacjaDane.delete(specyfikacja);
-        return przedmiotId; // Zwróć ID przedmiotu
+        return przedmiotId;
     }
 }

@@ -24,18 +24,18 @@ public class ZamowienieSerwis {
     private final DaneZamowienia daneZamowienia;
     private final DaneElementuZamowienia daneElementuZamowienia;
     private final DaneCenyZamowienia daneCenyZamowienia;
-    private final UzytkownikDane uzytkownikDane; // Dodaj nową zależność
+    private final UzytkownikDane uzytkownikDane;
 
     @Autowired
     public ZamowienieSerwis(Koszyk koszyk, DaneZamowienia daneZamowienia,
                             DaneElementuZamowienia daneElementuZamowienia,
                             DaneCenyZamowienia daneCenyZamowienia,
-                            UzytkownikDane uzytkownikDane) { // Dodaj do konstruktora
+                            UzytkownikDane uzytkownikDane) {
         this.koszyk = koszyk;
         this.daneZamowienia = daneZamowienia;
         this.daneElementuZamowienia = daneElementuZamowienia;
         this.daneCenyZamowienia = daneCenyZamowienia;
-        this.uzytkownikDane = uzytkownikDane; // Przypisanie nowego repozytorium
+        this.uzytkownikDane = uzytkownikDane;
     }
 
     public void zapiszZamowienie(ZamowienieDto zamowienieDto, Long uzytkownikId) {
@@ -49,19 +49,15 @@ public class ZamowienieSerwis {
         List<ElementZamowienia> elementyZamowienia = KonwerterZamowienia.konwertujElementZamowieniaList(koszyk, zamowienie);
         daneElementuZamowienia.saveAll(elementyZamowienia);
 
-        // Oblicz łączną cenę
-        BigDecimal lacznaCena = koszyk.getSum(); // Pobierz łączną cenę z koszyka
+        BigDecimal lacznaCena = koszyk.getSum();
 
-        // Zapisz łączną cenę zamówienia
         CenaZamowienia cenaZamowienia = new CenaZamowienia(zamowienie.getZamowienieId(), lacznaCena);
         daneCenyZamowienia.save(cenaZamowienia);
 
-        // Przyznaj punkty
         if (uzytkownikId != null) {
             przyznajPunkty(uzytkownikId, lacznaCena);
         }
 
-        // Wyczyść koszyk
         koszyk.wyczysckoszyk();
     }
 
@@ -69,7 +65,7 @@ public class ZamowienieSerwis {
         int punkty = lacznaCena.intValue() / 10; // 1 punkt za każde 5 zł
         uzytkownikDane.findById(uzytkownikId).ifPresent(uzytkownik -> {
             uzytkownik.setPunkty(uzytkownik.getPunkty() + punkty);
-            uzytkownikDane.save(uzytkownik); // Zaktualizuj użytkownika w bazie danych
+            uzytkownikDane.save(uzytkownik);
         });
     }
 
@@ -82,7 +78,7 @@ public class ZamowienieSerwis {
         return cenaZamowienia != null ? cenaZamowienia.getLacznaCena() : BigDecimal.ZERO;
     }
     public int obliczPunktyZaZakupy(Long uzytkownikId) {
-        BigDecimal lacznaCena = koszyk.getSum(); // Pobierz łączną cenę z koszyka
+        BigDecimal lacznaCena = koszyk.getSum();
         return lacznaCena.intValue() / 10; // 1 punkt za każde 5 zł
     }
 

@@ -11,12 +11,12 @@ public class Specyfikacja {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long przedmiotId; // Id przedmiotu, do którego ta specyfikacja się odnosi
+    private Long przedmiotId;
     private String nazwa;
     @Column(name = "wartosc", length = 1000)
-    private String wartosc;   // Wartość specyfikacji
+    private String wartosc;
 
-    // Gettery i settery
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public Long getPrzedmiotId() { return przedmiotId; }

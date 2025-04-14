@@ -34,9 +34,9 @@ public class KonwerterZamowienia {
                     zamowienie.getZamowienieId(),
                     pozycjawKoszyku.getLicznik(),
                     pozycjawKoszyku.getCena(),
-                    zamowienie.getCreated(),
-                    zamowienie.getUzytkownikId(),
-                    pozycjawKoszyku.getPrzedmiot()
+                    zamowienie.getCreated(), // Ustaw wartość created
+                    zamowienie.getUzytkownikId(), // Ustaw wartość uzytkownikId
+                    pozycjawKoszyku.getPrzedmiot() // Ustaw przedmiot
             );
             elementy.add(element);
         }
