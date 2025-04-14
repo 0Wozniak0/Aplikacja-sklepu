@@ -55,9 +55,8 @@ header .cart-ico:hover {
     color: #ffdddd;
 }
 
-/* Nowa klasa do powitania i przycisku logowania */
 .user-message {
-    font-size: 1.3rem; /* Ustal mniejszy rozmiar czcionki */
+    font-size: 1.3rem;
 }
 
 
@@ -77,62 +76,62 @@ header .cart-ico:hover {
 
 /* Styl kart produktów */
 .przedmiot {
-    background-color: #fff; /* Kolor tła karty produktu */
-    border: 1px solid #ddd; /* Kolor i grubość obramowania */
-    border-radius: 8px; /* Zaokrąglenie rogów karty */
-    padding: 10px; /* Padding wewnętrzny */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Cień karty produktu */
-    width: 180px; /* Szerokość karty produktu */
-    display: flex; /* Użycie flexbox do układu elementów wewnętrznych */
-    flex-direction: column; /* Ułożenie elementów w kolumnie */
-    align-items: center; /* Wyśrodkowanie elementów w poziomie */
-    justify-content: space-between; /* Rozmieszczenie elementów z równą przestrzenią */
-    height: 300px; /* Stała wysokość karty produktu */
-    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s; /* Płynna zmiana efektów */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 300px;
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
 }
 
 .przedmiot:hover {
-    transform: scale(1.05); /* Powiększenie karty produktu po najechaniu */
-    filter: brightness(1.1); /* Rozjaśnienie karty produktu */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Cień karty produktu po najechaniu */
+    transform: scale(1.05);
+    filter: brightness(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .przedmiot img {
-    max-width: 100%; /* Maksymalna szerokość zdjęcia */
-    height: 120px; /* Stała wysokość zdjęcia */
-    object-fit: cover; /* Dopasowanie zdjęcia do wymiarów */
-    border-radius: 8px; /* Zaokrąglenie rogów zdjęcia */
-    margin-bottom: 10px; /* Margines dolny zdjęcia */
+    max-width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
 .przedmiot-nazwa {
-    font-size: 1.1rem; /* Rozmiar czcionki nazwy przedmiotu */
-    color: #333; /* Kolor tekstu nazwy przedmiotu */
-    margin: 10px 0; /* Margines górny i dolny */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    flex-grow: 1; /* Umożliwienie rozciągania sekcji opisu */
-    display: flex; /* Użycie flexbox do układu tekstu */
-    align-items: center; /* Wyśrodkowanie tekstu w pionie */
+    font-size: 1.1rem;
+    color: #333;
+    margin: 10px 0;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
 }
 
 .przedmiot div {
-    font-size: 0.9rem; /* Rozmiar czcionki opisu przedmiotu */
-    color: #555; /* Kolor tekstu opisu przedmiotu */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    margin-bottom: 10px; /* Margines dolny */
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .add-btn {
-    background-color: #007bff; /* Kolor tła przycisku dodawania */
-    color: white; /* Kolor tekstu przycisku */
-    text-decoration: none; /* Usunięcie podkreślenia z linku */
-    padding: 5px 10px; /* Padding wewnętrzny */
-    border-radius: 5px; /* Zaokrąglenie rogów przycisku */
-    font-weight: bold; /* Pogrubienie tekstu */
-    margin-top: 10px; /* Margines górny */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    display: inline-block; /* Wyświetlanie jako element blokowy inline */
-    align-self: center; /* Wyśrodkowanie przycisku */
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    display: inline-block;
+    align-self: center;
 }
 
 
@@ -362,12 +361,12 @@ img {
 
 /* Styl dla kontenera formularza */
 .form-container {
-    margin: 50px auto;  /* Większy odstęp od góry */
-    width: 80%;  /* Szerokość kontenera */
-    max-width: 500px;  /* Maksymalna szerokość formularza */
+    margin: 50px auto;
+    width: 80%;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Wyśrodkowanie formularza */
+    align-items: center;
 }
 
 /* Styl dla nagłówka */
@@ -376,14 +375,14 @@ h2 {
     font-size: 24px;
     font-weight: bold;
     color: #333;
-    text-align: center;  /* Wyśrodkowanie nagłówka */
+    text-align: center;
 }
 
 /* Styl dla formularza */
 form {
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Wyśrodkowanie elementów formularza */
+    align-items: center;
     width: 100%;
 }
 
@@ -402,7 +401,7 @@ input {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    width: 100%;  /* Szerokość pól tekstowych */
+    width: 100%;
 }
 
 /* Styl dla przycisku */
@@ -414,9 +413,9 @@ button.add-btn {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    width: 100%;  /* Przycisk na całą szerokość formularza */
-    max-width: 200px;  /* Maksymalna szerokość przycisku */
-    text-align: center;  /* Wyśrodkowanie tekstu w przycisku */
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
     margin-top: 10px;
 }
 
@@ -427,60 +426,58 @@ button.add-btn:hover {
 
 #zamowieniaTabela tr td:nth-child(1), /* Kolumna Data */
 #zamowieniaTabela tr td:nth-child(5) { /* Kolumna Suma */
-    border: none; /* Usuwa obramowanie */
-    padding: 0;   /* Usuwa wypełnienie, jeśli potrzebne */
+    border: none;
+    padding: 0;
 }
 
 
 .header-container {
     display: flex;
-    align-items: center; /* Wyrównaj elementy w pionie */
+    align-items: center;
 }
 
 .welcome-message {
     font-size: 1.6rem;
-    margin-left: 15px; /* Odstęp między tytułem a wiadomością powitalną */
+    margin-left: 15px;
 }
 
-/* Styl dla linków do konta */
 .account-links {
-    margin-top: 30px; /* Większy odstęp nad linkami */
+    margin-top: 30px;
 }
 
 .account-link {
-    display: block; /* Umożliwia linkom zajmowanie całej szerokości */
-    padding: 10px 15px; /* Odstępy wewnętrzne */
-    background-color: #ff4d4d; /* Kolor tła dla linków */
-    color: white; /* Kolor tekstu */
-    text-decoration: none; /* Usunięcie podkreślenia */
-    border-radius: 5px; /* Zaokrąglenie krawędzi */
-    margin-bottom: 15px; /* Odstęp między linkami */
-    transition: background-color 0.3s; /* Animacja zmiany koloru tła */
-    font-size: 1.4rem; /* Rozmiar czcionki */
+    display: block;
+    padding: 10px 15px;
+    background-color: #ff4d4d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+    font-size: 1.4rem;
 }
 
 .account-link:hover {
-    background-color: #ff9999; /* Jaśniejszy kolor tła przy najechaniu */
+    background-color: #ff9999;
 }
 
 .account-content {
     display: flex;
-    flex-direction: column; /* Ustawienie na kolumnę */
-    align-items: center; /* Wyśrodkowanie zawartości */
-    width: 100%; /* Rozciąganie na całą szerokość */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .nazwa-link {
-    text-decoration: none; /* Usuwa podkreślenie */
-    color: black; /* Ustawia kolor tekstu, opcjonalnie */
+    text-decoration: none;
+    color: black;
 }
 
 .nazwa-link:hover {
-    color: #007bff; /* Możesz dodać kolor po najechaniu myszką */
+    color: #007bff;
 }
 
 
-/* Kontener dla szczegółów przedmiotu */
 .przedmiot-szczegoly {
     background-color: white;
     width: 90%;
@@ -516,7 +513,6 @@ button.add-btn:hover {
     gap: 20px;
 }
 
-/* Kontener dla ceny i przycisku "Dodaj do koszyka" */
 .price-container {
     background-color: white;
     padding: 20px;
@@ -556,7 +552,6 @@ button.add-btn:hover {
     background-color: #0056b3;
 }
 
-/* Kontener dla specyfikacji */
 .specifications-container {
     background-color: white;
     padding: 20px;
@@ -568,28 +563,28 @@ button.add-btn:hover {
 }
 
 .usun-ulubiony {
-    color: #dc3545; /* Czerwony kolor dla tekstu */
-    text-decoration: none; /* Bez podkreślenia */
-    font-weight: bold; /* Pogrubienie tekstu */
-    border: none; /* Usunięcie obramowania */
-    background: none; /* Usunięcie tła */
-    cursor: pointer; /* Ustawienie kursora na wskazujący */
+    color: #dc3545;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
 }
 
 .usun-ulubiony:hover {
-    color: #c82333; /* Ciemniejszy czerwony na hover */
-    text-decoration: underline; /* Podkreślenie na hover */
+    color: #c82333;
+    text-decoration: underline;
 }
 
 .categories-panel {
-    text-align: center; /* Ustawienie wyśrodkowania tytułu i panelu */
+    text-align: center;
     margin-top: 20px;
 }
 
 .categories {
     display: flex;
-    justify-content: center; /* Wyśrodkowanie przycisków w poziomie */
-    align-items: center; /* Wyśrodkowanie przycisków w pionie (jeśli będą miały różne wysokości) */
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 20px;
@@ -609,21 +604,18 @@ button.add-btn:hover {
     background-color: #ccc;
 }
 
-
-
-/* Stylizacja kontenera na całą zawartość - Grid z dwoma kolumnami */
 .content-container {
     display: grid;
-    grid-template-columns: 1fr 3fr; /* Lewa kolumna 1/4 szerokości, prawa 3/4 */
+    grid-template-columns: 1fr 3fr;
     gap: 20px;
     width: 90%;
     margin: 30px auto;
 }
 
 .account-settings-header {
-    text-align: center; /* Wyśrodkowanie tekstu */
-    margin-bottom: 20px; /* Dodatkowa przestrzeń poniżej nagłówka */
-    width: 100%; /* Ustawienie szerokości na 100%, aby zajął całą dostępną przestrzeń */
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .promocje-link {
@@ -646,18 +638,18 @@ table {
 }
 
 table td {
-    word-wrap: break-word; /* Pozwala na zawijanie tekstu w tabeli */
-    white-space: normal;   /* Wyłącza ciągłe wyświetlanie w jednym wierszu */
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .nowa-etykieta {
     background-color: red;
     color: white;
-    font-size: 18px; /* dostosowany rozmiar */
+    font-size: 18px;
     font-weight: bold;
     padding: 3px 8px;
     border-radius: 5px;
-    margin-left: 10px; /* odstęp od nazwy */
+    margin-left: 10px;
     display: inline-block;
 }
 
@@ -672,87 +664,87 @@ table td {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    border: 2px solid red; /* Czerwone obramowanie */
+    border: 2px solid red;
 }
 
 .przedmiot-okazja {
-    background-color: #fff; /* Kolor tła karty produktu */
-    border: 2px solid red; /* Czerwone obramowanie */
-    border-radius: 10px; /* Zaokrąglenie rogów karty */
-    padding: 15px; /* Padding wewnętrzny */
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); /* Cień karty produktu */
-    width: 280px; /* Zwiększona szerokość karty produktu */
-    display: flex; /* Użycie flexbox do układu elementów wewnętrznych */
-    flex-direction: column; /* Ułożenie elementów w kolumnie */
-    align-items: center; /* Wyśrodkowanie elementów w poziomie */
-    justify-content: space-between; /* Rozmieszczenie elementów z równą przestrzenią */
-    height: 400px; /* Zwiększona wysokość karty produktu */
-    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s; /* Płynna zmiana efektów */
+    background-color: #fff;
+    border: 2px solid red;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 400px;
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
 }
 
 .przedmiot-okazja:hover {
-    transform: scale(1.1); /* Powiększenie karty produktu po najechaniu */
-    filter: brightness(1.1); /* Rozjaśnienie karty produktu */
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Cień karty produktu po najechaniu */
+    transform: scale(1.1);
+    filter: brightness(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .przedmiot-okazja img {
-    max-width: 100%; /* Maksymalna szerokość zdjęcia */
-    height: 180px; /* Większa wysokość zdjęcia */
-    object-fit: cover; /* Dopasowanie zdjęcia do wymiarów */
-    border-radius: 10px; /* Zaokrąglenie rogów zdjęcia */
-    margin-bottom: 15px; /* Margines dolny zdjęcia */
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .przedmiot-okazja-nazwa {
-    font-size: 1.3rem; /* Większy rozmiar czcionki nazwy przedmiotu */
-    color: #333; /* Kolor tekstu nazwy przedmiotu */
-    margin: 12px 0; /* Margines górny i dolny */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    flex-grow: 1; /* Umożliwienie rozciągania sekcji opisu */
-    display: flex; /* Użycie flexbox do układu tekstu */
-    align-items: center; /* Wyśrodkowanie tekstu w pionie */
+    font-size: 1.3rem;
+    color: #333;
+    margin: 12px 0;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
 }
 
 .przedmiot-okazja div {
-    font-size: 1rem; /* Rozmiar czcionki opisu przedmiotu */
-    color: #555; /* Kolor tekstu opisu przedmiotu */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    margin-bottom: 12px; /* Margines dolny */
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 12px;
 }
 
 .add-btn-okazja {
-    background-color: #007bff; /* Kolor tła przycisku dodawania */
-    color: white; /* Kolor tekstu przycisku */
-    text-decoration: none; /* Usunięcie podkreślenia z linku */
-    padding: 7px 15px; /* Większy padding wewnętrzny */
-    border-radius: 6px; /* Zaokrąglenie rogów przycisku */
-    font-weight: bold; /* Pogrubienie tekstu */
-    margin-top: 15px; /* Margines górny */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    display: inline-block; /* Wyświetlanie jako element blokowy inline */
-    align-self: center; /* Wyśrodkowanie przycisku */
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 7px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+    display: inline-block;
+    align-self: center;
 }
 
 .add-btn-okazja:hover {
-    background-color: #0056b3; /* Ciemniejszy kolor przycisku po najechaniu */
+    background-color: #0056b3;
 }
 
 .punkty {
     font-size: 18px;
     font-weight: bold;
-    color: #4CAF50; /* Zielony kolor dla pozytywnego efektu */
+    color: #4CAF50;
     margin: 10px 0;
     padding: 10px;
     border: 2px solid #4CAF50;
     border-radius: 8px;
-    background-color: #f0fff0; /* Jasny zielony tło */
+    background-color: #f0fff0;
     text-align: center;
 }
 
 .punkty span {
     font-size: 24px;
-    color: #2e7d32; /* Ciemniejszy zielony dla liczby punktów */
+    color: #2e7d32;
 }
 
 
