@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wyniki wyszukiwania</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="~{sekcje/naglowek :: ShopHeader}"></header>
+
+
+<div class="search-panel">
+    <form action="/szukaj" method="get">
+        <input type="text" name="query" class="search-input" placeholder="Szukaj produktu..." required>
+        <button type="submit" class="search-button">Szukaj</button>
+    </form>
+</div>
+
+<!-- Sekcja z kategoriami, jak na stronie głównej -->
+<div class="categories-panel">
+    <h2>Wybierz kategorię</h2>
+    <div class="categories">
+        <a th:href="@{'/kategoria/1'}" class="category-link">Procesory</a>
+        <a th:href="@{'/kategoria/2'}" class="category-link">Karty Graficzne</a>
+        <a th:href="@{'/kategoria/3'}" class="category-link">Płyty Główne</a>
+        <a th:href="@{'/kategoria/4'}" class="category-link">Pamięci RAM</a>
+        <a th:href="@{'/kategoria/5'}" class="category-link">Dyski twarde HDD i SSD</a>
+        <a th:href="@{'/kategoria/6'}" class="category-link">Obudowy Komputerowe</a>
+        <a th:href="@{'/kategoria/7'}" class="category-link">Zasilacze Komputerowe</a>
+        <a th:href="@{'/kategoria/8'}" class="category-link">Chłodzenia Komputerowe</a>
+        <a th:href="@{'/kategoria/9'}" class="category-link">Karty sieciowe</a>
+        <a th:href="@{'/kategoria/10'}" class="category-link">Inne</a>
+    </div>
+</div>
+
+<!-- Wyniki wyszukiwania -->
+<div class="main-content">
+    <h2 class="account-settings-header" >Wyniki wyszukiwania</h2>
+
+    <!-- Wyświetlenie wyników wyszukiwania -->
+    <div class="przedmiot" th:each="przedmiot : ${przedmioty}">
+        <a th:href="@{'/przedmiot/' + ${przedmiot.id}}" class="przedmiot-nazwa nazwa-link" th:text="${przedmiot.nazwa}"></a>
+        <img th:src="@{${przedmiot.imgUrl}}" alt="Zdjęcie przedmiotu">
+        <div th:if="${przedmiot.cenaPromocyjna != null}">
+            <span style="text-decoration: line-through;" th:text="${przedmiot.cena}"></span>
+            <span>zł</span>
+        </div>
+        <div th:if="${przedmiot.cenaPromocyjna != null}">
+            <span style="color: green;" th:text="${przedmiot.cenaPromocyjna}"></span>
+            <span>zł</span>
+        </div>
+        <div th:if="${przedmiot.cenaPromocyjna == null}">
+            <span th:text="${przedmiot.cena}"></span>
+            <span>zł</span>
+        </div>
+        <div th:if="${przedmiot.dostepny}">
+            <a th:href="@{'/dodaj/' + ${przedmiot.id}}" class="add-btn">Dodaj do koszyka</a>
+        </div>
+        <div th:if="${!przedmiot.dostepny}">
+            <p style="color: red;">Przedmiot jest tymczasowo niedostępny</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${przedmiot.nazwa}">Szczegóły Przedmiotu</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="~{sekcje/naglowek :: ShopHeader}"></header>
+
+<div class="przedmiot-szczegoly">
+    <h1>
+        <span th:text="${przedmiot.nazwa}"></span>
+        <span th:if="${przedmiot.nowosc}" class="nowa-etykieta">Nowość</span>
+        <span th:if="${przedmiot.okazjaDnia}" class="nowa-etykieta">Okazja dnia</span>
+    </h1>
+    <div class="product-container">
+        <img th:src="@{${przedmiot.imgUrl}}" class="product-image">
+        <div class="product-info">
+            <div class="price-container">
+                <div th:if="${przedmiot.cenaPromocyjna != null}">
+                    <span>Cena przed obniżką:</span>
+                    <span style="text-decoration: line-through;" th:text="${przedmiot.cena}"></span>
+                    <span>zł</span>
+                </div>
+                <div th:if="${przedmiot.cenaPromocyjna != null}">
+                    <span>Cena promocyjna:</span>
+                    <span style="color: green;" th:text="${przedmiot.cenaPromocyjna}"></span>
+                    <span>zł</span>
+                </div>
+                <div th:if="${przedmiot.cenaPromocyjna == null}">
+                    <span>Cena:</span>
+                    <span th:text="${przedmiot.cena}"></span>
+                    <span>zł</span>
+                </div>
+                <div th:if="${sukces}" th:text="${sukces}" style="color: green;"></div>
+
+                <!-- Wyświetlenie komunikatu o błędzie dodawania do ulubionych -->
+                <div th:if="${blad}" th:text="${blad}" style="color: red;"></div>
+                <a th:href="@{'/dodaj/' + ${przedmiot.id} + '?redirect=przedmiot'}" class="przycisk-przedmiot">Dodaj do koszyka</a>
+                <!-- Przycisk Dodaj do ulubionych -->
+                <div class="form-container">
+                    <form th:action="@{/konto/dodajUlubionyPrzedmiot}" method="post">
+                        <input type="hidden" name="przedmiotId" th:value="${przedmiot.id}"/>
+                        <button type="submit" class="add-btn">Dodaj do ulubionych</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Specyfikacje</h2>
+    <div class="specifications-container">
+        <ul>
+            <li th:each="specyfikacja : ${specyfikacje}">
+                <strong th:text="${specyfikacja.nazwa}"></strong>: <span th:text="${specyfikacja.wartosc}"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sklep Internetowy</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:fragment="ShopHeader" class="header">
+    <a th:href="@{/}" class="title-link">Sklep Internetowy</a>
+
+    <!-- Panel użytkownika: logowanie i koszyk -->
+    <div style="display: flex; align-items: center;">
+        <div th:if="${uzytkownik != null}" class="user-message">
+            <span>
+                Witaj, <a th:href="@{/konto}" th:text="${uzytkownik.login}" style="text-decoration: underline;"></a>!
+            </span>
+            <a th:href="@{/admin}" th:if="${uzytkownik.rola == 'admin'}" style="margin-left: 20px;">Panel Admina</a>
+            <a th:href="@{/wyloguj}" class="login-link" style="margin-left: 20px;">Wyloguj się</a>
+        </div>
+        <div th:if="${uzytkownik == null}" class="user-message">
+            <a th:href="@{/logowanie}" class="login-link" style="margin-right: 20px;">Zaloguj się</a>
+        </div>
+
+        <!-- Ikona koszyka -->
+        <a th:href="@{/zamowienie/koszyk}" class="cart-ico" style="margin-left: 20px;">
+            <div>
+                <span>Koszyk (</span>
+                <span th:text="${@koszyk.licznik}"></span>
+                <span>)</span>
+                <span th:text="${@koszyk.sum}"></span>
+                <span>zł</span>
+            </div>
+        </a>
+    </div>
+</header>
+</body>
+</html>

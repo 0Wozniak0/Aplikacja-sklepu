@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ulubione Przedmioty</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="sekcje/naglowek :: ShopHeader"></header>
+
+<div class="main-content">
+    <h1>Ulubione Przedmioty</h1>
+
+    <div th:if="${#lists.isEmpty(ulubionePrzedmioty)}">
+        <p>Nie masz jeszcze ulubionych przedmiotów.</p>
+    </div>
+
+    <table th:if="${!#lists.isEmpty(ulubionePrzedmioty)}" class="table-ulubione">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Nazwa</th>
+            <th>Cena</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ulubiony : ${ulubionePrzedmioty}">
+            <td>
+                <img th:src="${ulubiony.przedmiot.imgUrl}" alt="Zdjęcie przedmiotu" width="100"/>
+            </td>
+            <td>
+            <a th:href="@{'/przedmiot/' + ${ulubiony.przedmiot.id}}" class="przedmiot-nazwa nazwa-link" th:text="${ulubiony.przedmiot.nazwa}"></a>
+            </td>
+            <td th:text="${ulubiony.przedmiot.cena} + ' zł'">Cena</td>
+            <td>
+                <form th:action="@{/konto/usunUlubionyPrzedmiot}" method="post">
+                    <input type="hidden" th:name="przedmiotId" th:value="${ulubiony.przedmiot.id}"/>
+                    <button type="submit" class="usun-ulubiony"  >Usuń</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

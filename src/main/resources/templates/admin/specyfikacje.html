@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zarządzaj Specyfikacjami</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+
+<header th:replace="sekcje/naglowek :: ShopHeader"></header>
+
+
+<div class="main-content">
+    <h1>Specyfikacje dla przedmiotu: <span th:text="${przedmiot.nazwa}"></span></h1>
+
+    <!-- Wyświetlenie listy specyfikacji -->
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nazwa Specyfikacji</th>
+            <th>Wartość</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="specyfikacja : ${specyfikacje}">
+            <td th:text="${specyfikacja.id}"></td>
+            <td th:text="${specyfikacja.nazwa}"></td>
+            <td th:text="${specyfikacja.wartosc}"></td>
+            <td>
+                <a th:href="@{'/admin/specyfikacja/edytuj/' + ${specyfikacja.id}}" class="btn-edit">Edytuj</a>
+                <a th:href="@{'/admin/specyfikacja/usun/' + ${specyfikacja.id}}" class="btn-delete">Usuń</a>
+            </td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(specyfikacje)}">
+            <td colspan="4">Brak specyfikacji dla tego przedmiotu.</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

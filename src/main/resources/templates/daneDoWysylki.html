@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dane do Wysyłki</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="~{sekcje/naglowek :: ShopHeader}"></header>
+
+<div class="main-content">
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th style="width: 30px;">No.</th>
+                <th style="width: 50px;"></th>
+                <th>Nazwa</th>
+                <th>Ilość</th>
+                <th>Cena</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="pozycjawKoszyku, iterStat : ${@koszyk.pozycjewKoszyku}">
+                <td th:text="${iterStat.index + 1}"></td>
+                <td>
+                    <img th:src="@{${pozycjawKoszyku.przedmiot.imgUrl}}" alt="Zdjęcie produktu">
+                </td>
+                <td th:text="${pozycjawKoszyku.przedmiot.nazwa}"></td>
+                <td th:text="${pozycjawKoszyku.licznik}"></td>
+                <td th:text="${pozycjawKoszyku.cena}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="podsumowanie">
+            <p><span>Do zapłaty:</span> <span th:text="${@koszyk.sum}"></span> zł</p>
+        </div>
+
+        <div class="form-container">
+            <h2>Dane do wysyłki</h2>
+            <form th:action="@{/zamowienie/przejdzDoPodsumowania}" th:object="${zamowienieDto}" method="post">
+                <label>Imię</label>
+                <input type="text" th:field="*{imie}" required>
+
+                <label>Nazwisko</label>
+                <input type="text" th:field="*{nazwisko}" required>
+
+                <label>Adres</label>
+                <input type="text" th:field="*{adres}" required>
+
+                <label>Kod pocztowy</label>
+                <input type="text" th:field="*{kodPocztowy}" required>
+
+                <label>Miasto</label>
+                <input type="text" th:field="*{miasto}" required>
+
+                <button type="submit" class="add-btn">Przejdź do podsumowania</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+</body>
+</html>

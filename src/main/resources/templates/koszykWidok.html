@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sklep Internetowy</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="sekcje/naglowek :: ShopHeader"></header>
+
+<div class="main-content">
+
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+
+        <table cellpadding="0">
+            <tr>
+                <th style="width: 30px;">No.</th>
+                <th style="width: 50px;"></th>
+                <th>Nazwa</th>
+                <th>Ilość</th>
+                <th>Suma</th>
+                <th style="width: 30px;"></th>
+            </tr>
+            <tr th:each="pozycjawKoszyku, iterStat : ${@koszyk.pozycjewKoszyku}">
+                <td th:text="${iterStat.index + 1}"></td> <!-- Numeracja -->
+                <td>
+                    <img th:src="@{${pozycjawKoszyku.przedmiot.imgUrl}}"/>
+                </td>
+                <td th:text="${pozycjawKoszyku.przedmiot.nazwa}"></td>
+                <td style="display: width: 100%;flex; align-items: center;">
+                    <a class="przycisk-ilosci" th:href="@{'/zamowienie/zwieksz/' + ${pozycjawKoszyku.przedmiot.id}}">˄</a>
+                    <p th:text="${pozycjawKoszyku.licznik}" class="tekst-ilosci"></p>
+                    <a class="przycisk-ilosci" th:href="@{'/zamowienie/zmniejsz/' + ${pozycjawKoszyku.przedmiot.id}}">˅</a>
+                </td>
+                <td th:text="${pozycjawKoszyku.cena}"></td>
+                <td>
+                    <a class="mbtn" th:href="@{'/zamowienie/usun/' + ${pozycjawKoszyku.przedmiot.id}}">X</a>
+                </td>
+            </tr>
+        </table>
+
+        <div th:if="${uzytkownik == null}">
+            <h3>Jeśli chcesz skorzystać z punktów lojanościowych za zakupy<a th:href="@{/logowanie}"> Zaloguj się</a></h3>
+        </div>
+        <div th:if="${uzytkownik != null}">
+            <h3>Za te zamówienie otrzymasz: <span th:text="${punktyZaZakupy}" style="color: green;"></span> punktów</h3>
+        </div>
+        <div th:if="${uzytkownik != null}">
+            <h3>Masz <span th:text="${punkty}">0</span> punktów lojalnościowych</h3>
+            <p>Możesz uzyskać zniżkę w wysokości <span th:text="${znizka}">0</span> PLN.</p>
+
+            <form th:action="@{/zamowienie/wykorzystajPunkty}" method="post">
+                <label>Wykorzystaj punkty:
+                    <input type="number" name="punktyDoWykorzystania" max="${punkty}" min="0"/>
+                </label>
+                <button type="submit">Wykorzystaj punkty</button>
+            </form>
+        </div>
+
+        <div class="podsumowanie">
+            <p><span>Do zapłaty: </span><span th:text="${@koszyk.sum}" style="font-weight: bold; font-size: 24px;"></span> zł</p>
+        </div>
+        <a th:href="@{/zamowienie/daneDoWysylki}" class="add-btn">Dalej</a>
+    </div>
+</div>
+</body>
+</html>

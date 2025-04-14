@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nowości - Sklep Internetowy</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="~{sekcje/naglowek :: ShopHeader}"></header>
+
+<div class="main-content">
+    <h2 class="account-settings-header">Wszystkie Nowości</h2>
+    <div class="przedmiot" th:each="przedmiot : ${przedmioty}">
+        <a th:href="@{'/przedmiot/' + ${przedmiot.id}}" class="przedmiot-nazwa nazwa-link" th:text="${przedmiot.nazwa}"></a>
+        <img th:src="@{${przedmiot.imgUrl}}">
+        <div th:if="${przedmiot.cenaPromocyjna != null}">
+            <span style="text-decoration: line-through;" th:text="${przedmiot.cena}"></span> zł
+            <span style="color: green;" th:text="${przedmiot.cenaPromocyjna}"></span> zł
+        </div>
+        <div th:if="${przedmiot.cenaPromocyjna == null}">
+            <span th:text="${przedmiot.cena}"></span> zł
+        </div>
+        <a th:href="@{'/dodaj/' + ${przedmiot.id}}" class="add-btn">Dodaj do koszyka</a>
+    </div>
+</div>
+
+</body>
+</html>

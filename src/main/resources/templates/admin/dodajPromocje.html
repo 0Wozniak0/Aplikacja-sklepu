@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj Promocję dla ${przedmiot.nazwa}</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="sekcje/naglowek :: ShopHeader"></header>
+
+<div class="main-content">
+    <h1>Dodaj Promocję dla:<span th:text="${przedmiot.nazwa}"></span></h1>
+
+    <form th:action="@{/admin/promocje/dodaj}" method="post">
+        <input type="hidden" name="id" th:value="${przedmiot.id}"/>
+
+        <label>Cena Promocyjna</label>
+        <input type="number" step="0.01" name="cenaPromocyjna" placeholder="Cena promocyjna" required/>
+
+        <button type="submit">Dodaj Promocję</button>
+    </form>
+
+    <form th:action="@{/admin/promocje/usun}" method="post">
+        <input type="hidden" name="id" th:value="${przedmiot.id}"/>
+        <button type="submit">Usuń Promocję</button>
+    </form>
+
+    <form th:action="@{/admin/zmienCene}" method="post">
+        <input type="hidden" name="id" th:value="${przedmiot.id}"/>
+
+        <label>Nowa Cena</label>
+        <input type="number" step="0.01" name="cena" placeholder="Nowa cena" required/>
+
+        <button type="submit">Zmień Cenę</button>
+    </form>
+
+    <form th:action="@{/admin/zmienOkazjaDnia/{id}(id=${przedmiot.id})}" method="get">
+        <button type="submit" th:text="${przedmiot.okazjaDnia ? 'Usuń z Okazji Dnia' : 'Dodaj do Okazji Dnia'}"></button>
+    </form>
+</div>
+</body>
+</html>

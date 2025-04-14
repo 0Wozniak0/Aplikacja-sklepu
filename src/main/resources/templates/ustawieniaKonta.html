@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ustawienia Konta</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="sekcje/naglowek :: ShopHeader"></header>
+
+<div class="main-content">
+    <h1 class="account-settings-header">Ustawienia Konta</h1>
+
+
+    <div th:if="${uzytkownik == null}">
+        <p class="welcome-message">Zaloguj się, aby uzyskać dostęp do swojego konta.</p>
+    </div>
+
+    <div th:if="${uzytkownik != null}">
+
+    <form th:action="@{/konto/ustawieniaKonta}" method="post">
+        <div>
+            <label for="login">Nowy login:</label>
+            <input type="text" id="login" name="login" th:value="${uzytkownik.login}" required>
+        </div>
+        <div>
+            <label for="haslo">Nowe hasło:</label>
+            <input type="password" id="haslo" name="haslo" required>
+        </div>
+        <div>
+            <label for="hasloPotwierdzenie">Powtórz hasło:</label>
+            <input type="password" id="hasloPotwierdzenie" name="hasloPotwierdzenie" required>
+        </div>
+        <button type="submit" class="add-btn">Zaktualizuj dane</button>
+    </form>
+    <div th:if="${blad != null}">
+        <p th:text="${blad}" style="color:red;"></p>
+    </div>
+    </div>
+</div>
+
+</body>
+</html>

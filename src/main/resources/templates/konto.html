@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Moje Konto</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="sekcje/naglowek :: ShopHeader"></header>
+
+<div class="main-content">
+    <h1>Moje Konto</h1>
+    <div class="account-content">
+        <div th:if="${uzytkownik == null}">
+            <p class="welcome-message"><a th:href="@{/logowanie}">Zaloguj się</a> , aby uzyskać dostęp do swojego konta.</p>
+        </div>
+        <div th:if="${uzytkownik != null}">
+            <div class="punkty">
+                <p>Twoje punkty lojalnościowe: <span th:text="${uzytkownik.punkty}"></span></p>
+            </div>
+            <div class="account-links">
+                <a href="/konto/historiaZamowien" class="account-link">Historia zamówień</a>
+                <a href="/konto/ustawieniaKonta" class="account-link">Ustawienia konta</a>
+                <a href="/konto/ulubionePrzedmioty" class="account-link">Ulubione Przedmioty</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

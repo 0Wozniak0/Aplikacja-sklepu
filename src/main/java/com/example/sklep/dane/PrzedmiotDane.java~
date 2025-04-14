@@ -1,0 +1,29 @@
+package com.example.sklep.dane;
+
+import com.example.sklep.model.Przedmiot;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+@Repository
+public interface PrzedmiotDane extends JpaRepository <Przedmiot, Long> {
+    List<Przedmiot> findByNazwaContainingIgnoreCase(String nazwa);
+    List<Przedmiot> findByKategoriaId(Long kategoriaId);
+    List<Przedmiot> findTop6ByCenaPromocyjnaIsNotNull();
+    List<Przedmiot> findByCenaPromocyjnaIsNotNull();
+    List<Przedmiot> findTop6ByNowoscTrue();
+    List<Przedmiot> findByNowoscTrue();
+
+    @Query("SELECT p FROM Przedmiot p WHERE p.kategoria.id = :kategoriaId AND "
+            + "(:cenaOd IS NULL OR (COALESCE(p.cenaPromocyjna, p.cena) >= :cenaOd)) AND "
+            + "(:cenaDo IS NULL OR (COALESCE(p.cenaPromocyjna, p.cena) <= :cenaDo))")
+    List<Przedmiot> findByKategoriaIdAndCenaRange(
+            @Param("kategoriaId") Long kategoriaId,
+            @Param("cenaOd") BigDecimal cenaOd,
+            @Param("cenaDo") BigDecimal cenaDo);
+
+}

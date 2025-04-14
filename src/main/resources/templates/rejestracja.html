@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="sekcje/naglowek :: ShopHeader"></header>
+
+<div class="form-container">
+    <h2>Rejestracja</h2>
+
+    <!-- Wyświetlanie komunikatu o błędzie -->
+    <div th:if="${error != null}" style="color: red;">
+        <p th:text="${error}"></p>
+    </div>
+
+    <form th:action="@{/rejestracja}" method="post">
+        <div>
+            <label for="login">Login:</label>
+            <input type="text" id="login" name="login" required>
+        </div>
+
+        <div>
+            <label for="haslo">Hasło:</label>
+            <input type="password" id="haslo" name="haslo" required>
+        </div>
+        <button type="submit" class="add-btn">Zarejestruj się</button>
+    </form>
+
+    <p>Masz już konto? <a th:href="@{/logowanie}">Zaloguj się</a></p>
+</div>
+</body>
+</html>

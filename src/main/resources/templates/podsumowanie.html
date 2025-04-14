@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Podsumowanie Zamówienia</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="sekcje/naglowek :: ShopHeader"></header>
+
+<div class="main-content">
+    <div class="table-container">
+        <h2>Podsumowanie Zamówienia</h2>
+
+        <!-- Sekcja z listą zakupów -->
+        <h3>Lista zakupów</h3>
+        <table>
+            <thead>
+            <tr>
+                <th style="width: 30px;">No.</th>
+                <th style="width: 50px;"></th>
+                <th>Nazwa</th>
+                <th>Ilość</th>
+                <th>Cena</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="pozycjawKoszyku, iterStat : ${@koszyk.pozycjewKoszyku}">
+                <td th:text="${iterStat.index + 1}"></td>
+                <td>
+                    <img th:src="@{${pozycjawKoszyku.przedmiot.imgUrl}}" alt="Zdjęcie produktu">
+                </td>
+                <td th:text="${pozycjawKoszyku.przedmiot.nazwa}"></td>
+                <td th:text="${pozycjawKoszyku.licznik}"></td>
+                <td th:text="${pozycjawKoszyku.cena}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="podsumowanie">
+            <p><span>Do zapłaty:</span> <span th:text="${@koszyk.sum}"></span> zł</p>
+        </div>
+
+        <!-- Sekcja z danymi do wysyłki -->
+        <h3>Dane do wysyłki</h3>
+        <form th:action="@{/zamowienie/zapiszZamowienie}" th:object="${zamowienieDto}" method="post">
+            <table>
+                <tbody>
+                <tr>
+                    <th>Imię</th>
+                    <td><input type="text" th:field="*{imie}" /></td>
+                </tr>
+                <tr>
+                    <th>Nazwisko</th>
+                    <td><input type="text" th:field="*{nazwisko}" /></td>
+                </tr>
+                <tr>
+                    <th>Adres</th>
+                    <td><input type="text" th:field="*{adres}" /></td>
+                </tr>
+                <tr>
+                    <th>Kod pocztowy</th>
+                    <td><input type="text" th:field="*{kodPocztowy}" /></td>
+                </tr>
+                <tr>
+                    <th>Miasto</th>
+                    <td><input type="text" th:field="*{miasto}" /></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- Przycisk do zatwierdzenia zamówienia -->
+            <div class="form-container">
+                <button type="submit" class="add-btn">Zamów</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

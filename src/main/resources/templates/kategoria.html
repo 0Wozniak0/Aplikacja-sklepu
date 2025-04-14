@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Produkty w kategorii</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="~{sekcje/naglowek :: ShopHeader}"></header>
+
+<h1 th:text="'Produkty w kategorii: ' + ${kategoria.nazwa}"></h1>
+
+<div class="content-container">
+    <!-- Lewa kolumna z opcjami filtrowania -->
+    <div class="main-content opcje">
+        <h2>Opcje filtrowania:</h2>
+
+        <!-- Formularz filtrowania według ceny -->
+        <form th:action="@{'/kategoria/' + ${kategoria.id} + '/filtruj'}" method="get">
+            <label for="cenaOd">Cena od:</label>
+            <input type="number" id="cenaOd" name="cenaOd" step="0.01" min="0">
+
+            <label for="cenaDo">Cena do:</label>
+            <input type="number" id="cenaDo" name="cenaDo" step="0.01" min="0">
+
+            <button type="submit">Filtruj</button>
+        </form>
+    </div>
+
+    <!-- Prawa kolumna z przedmiotami -->
+    <div class="main-content przedmioty">
+        <div th:if="${blad}" style="color: red">
+            <p th:text="${blad}"></p>
+        </div>
+
+        <div class="przedmiot" th:each="przedmiot : ${przedmioty}">
+            <a th:href="@{'/przedmiot/' + ${przedmiot.id}}" class="przedmiot-nazwa nazwa-link" th:text="${przedmiot.nazwa}"></a>
+            <img th:src="@{${przedmiot.imgUrl}}" alt="Obrazek przedmiotu">
+
+            <!-- Wyświetlanie cen z promocją (jeśli dostępna) -->
+            <div th:if="${przedmiot.cenaPromocyjna != null}">
+                <span style="text-decoration: line-through;" th:text="${przedmiot.cena}"></span>
+                <span>zł</span>
+            </div>
+            <div th:if="${przedmiot.cenaPromocyjna != null}">
+                <span style="color: green;" th:text="${przedmiot.cenaPromocyjna}"></span>
+                <span>zł</span>
+            </div>
+
+            <!-- Wyświetlanie standardowej ceny, jeśli nie ma promocji -->
+            <div th:if="${przedmiot.cenaPromocyjna == null}">
+                <span th:text="${przedmiot.cena}"></span>
+                <span>zł</span>
+            </div>
+
+            <div th:if="${przedmiot.dostepny}">
+                <a th:href="@{'/dodaj/' + ${przedmiot.id} + '?redirect=kategoria&kategoriaId=' + ${kategoria.id}}"
+                   class="add-btn">Dodaj do koszyka</a>
+            </div>
+            <div th:if="${!przedmiot.dostepny}">
+                <p style="color: red;">Przedmiot jest aktualnie niedostępny</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

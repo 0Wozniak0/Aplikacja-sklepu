@@ -1,0 +1,768 @@
+/* Styl dla całej strony */
+body {
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Nagłówek */
+header {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .cart-ico {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem; /* Rozmiar koszyka */
+    font-weight: bold;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+header .cart-ico:hover {
+    color: #ffdddd;
+}
+
+.title-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.7rem; /* Rozmiar tytułu */
+    font-weight: bold;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.title-link:hover {
+    color: #ffdddd;
+}
+
+.login-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem; /* Rozmiar przycisku logowania */
+    margin-right: 20px;
+    transition: color 0.3s;
+}
+
+.login-link:hover {
+    color: #ffdddd;
+}
+
+/* Nowa klasa do powitania i przycisku logowania */
+.user-message {
+    font-size: 1.3rem; /* Ustal mniejszy rozmiar czcionki */
+}
+
+
+/* Główna zawartość strony */
+.main-content {
+    background-color: white;
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Styl kart produktów */
+.przedmiot {
+    background-color: #fff; /* Kolor tła karty produktu */
+    border: 1px solid #ddd; /* Kolor i grubość obramowania */
+    border-radius: 8px; /* Zaokrąglenie rogów karty */
+    padding: 10px; /* Padding wewnętrzny */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Cień karty produktu */
+    width: 180px; /* Szerokość karty produktu */
+    display: flex; /* Użycie flexbox do układu elementów wewnętrznych */
+    flex-direction: column; /* Ułożenie elementów w kolumnie */
+    align-items: center; /* Wyśrodkowanie elementów w poziomie */
+    justify-content: space-between; /* Rozmieszczenie elementów z równą przestrzenią */
+    height: 300px; /* Stała wysokość karty produktu */
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s; /* Płynna zmiana efektów */
+}
+
+.przedmiot:hover {
+    transform: scale(1.05); /* Powiększenie karty produktu po najechaniu */
+    filter: brightness(1.1); /* Rozjaśnienie karty produktu */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Cień karty produktu po najechaniu */
+}
+
+.przedmiot img {
+    max-width: 100%; /* Maksymalna szerokość zdjęcia */
+    height: 120px; /* Stała wysokość zdjęcia */
+    object-fit: cover; /* Dopasowanie zdjęcia do wymiarów */
+    border-radius: 8px; /* Zaokrąglenie rogów zdjęcia */
+    margin-bottom: 10px; /* Margines dolny zdjęcia */
+}
+
+.przedmiot-nazwa {
+    font-size: 1.1rem; /* Rozmiar czcionki nazwy przedmiotu */
+    color: #333; /* Kolor tekstu nazwy przedmiotu */
+    margin: 10px 0; /* Margines górny i dolny */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    flex-grow: 1; /* Umożliwienie rozciągania sekcji opisu */
+    display: flex; /* Użycie flexbox do układu tekstu */
+    align-items: center; /* Wyśrodkowanie tekstu w pionie */
+}
+
+.przedmiot div {
+    font-size: 0.9rem; /* Rozmiar czcionki opisu przedmiotu */
+    color: #555; /* Kolor tekstu opisu przedmiotu */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    margin-bottom: 10px; /* Margines dolny */
+}
+
+.add-btn {
+    background-color: #007bff; /* Kolor tła przycisku dodawania */
+    color: white; /* Kolor tekstu przycisku */
+    text-decoration: none; /* Usunięcie podkreślenia z linku */
+    padding: 5px 10px; /* Padding wewnętrzny */
+    border-radius: 5px; /* Zaokrąglenie rogów przycisku */
+    font-weight: bold; /* Pogrubienie tekstu */
+    margin-top: 10px; /* Margines górny */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    display: inline-block; /* Wyświetlanie jako element blokowy inline */
+    align-self: center; /* Wyśrodkowanie przycisku */
+}
+
+
+.add-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Styl formularzy */
+.search-form {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.search-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-form input[type="text"] {
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.search-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+
+.add-item-form {
+    flex: 1;
+    max-width: 300px;
+}
+
+.add-item-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-item-form input,
+.add-item-form button {
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add-item-form input[type="text"],
+.add-item-form input[type="number"] {
+    margin-bottom: 10px;
+}
+
+.add-item-form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.add-item-form button:hover {
+    background-color: #218838;
+}
+
+/* Styl dla panelu wyszukiwania */
+.search-panel {
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.search-input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+.search-button {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/* Styl dla przycisków ilości w koszyku */
+.przycisk-ilosci {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.przycisk-ilosci:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Styl dla tekstu ilości */
+.tekst-ilosci {
+    font-size: 1.2rem;
+    margin: 0 10px;
+    text-align: center;
+}
+
+/* Styl dla tabel */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+td img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.btn-delete {
+    color: #dc3545;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-delete:hover {
+    color: #c82333;
+    text-decoration: underline;
+}
+
+/* Style dla tabeli */
+.table-container {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+thead {
+    background-color: #f4f4f4;
+}
+
+th {
+    border-bottom: 2px solid #ddd;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+}
+
+img {
+    max-width: 50px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Style dla podsumowania */
+.podsumowanie {
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Styl dla kontenera formularza */
+.form-container {
+    margin: 50px auto;  /* Większy odstęp od góry */
+    width: 80%;  /* Szerokość kontenera */
+    max-width: 500px;  /* Maksymalna szerokość formularza */
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Wyśrodkowanie formularza */
+}
+
+/* Styl dla nagłówka */
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;  /* Wyśrodkowanie nagłówka */
+}
+
+/* Styl dla formularza */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Wyśrodkowanie elementów formularza */
+    width: 100%;
+}
+
+/* Styl dla etykiet */
+label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+    text-align: left;
+    width: 100%;
+}
+
+/* Styl dla pól tekstowych */
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;  /* Szerokość pól tekstowych */
+}
+
+/* Styl dla przycisku */
+button.add-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;  /* Przycisk na całą szerokość formularza */
+    max-width: 200px;  /* Maksymalna szerokość przycisku */
+    text-align: center;  /* Wyśrodkowanie tekstu w przycisku */
+    margin-top: 10px;
+}
+
+/* Styl dla przycisku po najechaniu */
+button.add-btn:hover {
+    background-color: #0056b3;
+}
+
+#zamowieniaTabela tr td:nth-child(1), /* Kolumna Data */
+#zamowieniaTabela tr td:nth-child(5) { /* Kolumna Suma */
+    border: none; /* Usuwa obramowanie */
+    padding: 0;   /* Usuwa wypełnienie, jeśli potrzebne */
+}
+
+
+.header-container {
+    display: flex;
+    align-items: center; /* Wyrównaj elementy w pionie */
+}
+
+.welcome-message {
+    font-size: 1.6rem;
+    margin-left: 15px; /* Odstęp między tytułem a wiadomością powitalną */
+}
+
+/* Styl dla linków do konta */
+.account-links {
+    margin-top: 30px; /* Większy odstęp nad linkami */
+}
+
+.account-link {
+    display: block; /* Umożliwia linkom zajmowanie całej szerokości */
+    padding: 10px 15px; /* Odstępy wewnętrzne */
+    background-color: #ff4d4d; /* Kolor tła dla linków */
+    color: white; /* Kolor tekstu */
+    text-decoration: none; /* Usunięcie podkreślenia */
+    border-radius: 5px; /* Zaokrąglenie krawędzi */
+    margin-bottom: 15px; /* Odstęp między linkami */
+    transition: background-color 0.3s; /* Animacja zmiany koloru tła */
+    font-size: 1.4rem; /* Rozmiar czcionki */
+}
+
+.account-link:hover {
+    background-color: #ff9999; /* Jaśniejszy kolor tła przy najechaniu */
+}
+
+.account-content {
+    display: flex;
+    flex-direction: column; /* Ustawienie na kolumnę */
+    align-items: center; /* Wyśrodkowanie zawartości */
+    width: 100%; /* Rozciąganie na całą szerokość */
+}
+
+.nazwa-link {
+    text-decoration: none; /* Usuwa podkreślenie */
+    color: black; /* Ustawia kolor tekstu, opcjonalnie */
+}
+
+.nazwa-link:hover {
+    color: #007bff; /* Możesz dodać kolor po najechaniu myszką */
+}
+
+
+/* Kontener dla szczegółów przedmiotu */
+.przedmiot-szczegoly {
+    background-color: white;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Kontener dla obrazka i informacji o produkcie */
+.product-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Obrazek produktu */
+.product-image {
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Informacje o produkcie */
+.product-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Kontener dla ceny i przycisku "Dodaj do koszyka" */
+.price-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 250px;
+}
+
+/* Styl dla ceny */
+.price {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Styl dla przycisku "Dodaj do koszyka" */
+.przycisk-przedmiot {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    align-self: center;
+}
+
+.przycisk-przedmiot:hover {
+    background-color: #0056b3;
+}
+
+/* Kontener dla specyfikacji */
+.specifications-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.usun-ulubiony {
+    color: #dc3545; /* Czerwony kolor dla tekstu */
+    text-decoration: none; /* Bez podkreślenia */
+    font-weight: bold; /* Pogrubienie tekstu */
+    border: none; /* Usunięcie obramowania */
+    background: none; /* Usunięcie tła */
+    cursor: pointer; /* Ustawienie kursora na wskazujący */
+}
+
+.usun-ulubiony:hover {
+    color: #c82333; /* Ciemniejszy czerwony na hover */
+    text-decoration: underline; /* Podkreślenie na hover */
+}
+
+.categories-panel {
+    text-align: center; /* Ustawienie wyśrodkowania tytułu i panelu */
+    margin-top: 20px;
+}
+
+.categories {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie przycisków w poziomie */
+    align-items: center; /* Wyśrodkowanie przycisków w pionie (jeśli będą miały różne wysokości) */
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.category-link {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.category-link:hover {
+    background-color: #ccc;
+}
+
+
+
+/* Stylizacja kontenera na całą zawartość - Grid z dwoma kolumnami */
+.content-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* Lewa kolumna 1/4 szerokości, prawa 3/4 */
+    gap: 20px;
+    width: 90%;
+    margin: 30px auto;
+}
+
+.account-settings-header {
+    text-align: center; /* Wyśrodkowanie tekstu */
+    margin-bottom: 20px; /* Dodatkowa przestrzeń poniżej nagłówka */
+    width: 100%; /* Ustawienie szerokości na 100%, aby zajął całą dostępną przestrzeń */
+}
+
+.promocje-link {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.promocje-link:visited {
+    color: black;
+}
+.promocje-link:hover {
+    color: #007bff;
+}
+
+table {
+    width: 100%;
+}
+
+table td {
+    word-wrap: break-word; /* Pozwala na zawijanie tekstu w tabeli */
+    white-space: normal;   /* Wyłącza ciągłe wyświetlanie w jednym wierszu */
+}
+
+.nowa-etykieta {
+    background-color: red;
+    color: white;
+    font-size: 18px; /* dostosowany rozmiar */
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 5px;
+    margin-left: 10px; /* odstęp od nazwy */
+    display: inline-block;
+}
+
+.main-content-okazja {
+    background-color: white;
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    border: 2px solid red; /* Czerwone obramowanie */
+}
+
+.przedmiot-okazja {
+    background-color: #fff; /* Kolor tła karty produktu */
+    border: 2px solid red; /* Czerwone obramowanie */
+    border-radius: 10px; /* Zaokrąglenie rogów karty */
+    padding: 15px; /* Padding wewnętrzny */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); /* Cień karty produktu */
+    width: 280px; /* Zwiększona szerokość karty produktu */
+    display: flex; /* Użycie flexbox do układu elementów wewnętrznych */
+    flex-direction: column; /* Ułożenie elementów w kolumnie */
+    align-items: center; /* Wyśrodkowanie elementów w poziomie */
+    justify-content: space-between; /* Rozmieszczenie elementów z równą przestrzenią */
+    height: 400px; /* Zwiększona wysokość karty produktu */
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s; /* Płynna zmiana efektów */
+}
+
+.przedmiot-okazja:hover {
+    transform: scale(1.1); /* Powiększenie karty produktu po najechaniu */
+    filter: brightness(1.1); /* Rozjaśnienie karty produktu */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Cień karty produktu po najechaniu */
+}
+
+.przedmiot-okazja img {
+    max-width: 100%; /* Maksymalna szerokość zdjęcia */
+    height: 180px; /* Większa wysokość zdjęcia */
+    object-fit: cover; /* Dopasowanie zdjęcia do wymiarów */
+    border-radius: 10px; /* Zaokrąglenie rogów zdjęcia */
+    margin-bottom: 15px; /* Margines dolny zdjęcia */
+}
+
+.przedmiot-okazja-nazwa {
+    font-size: 1.3rem; /* Większy rozmiar czcionki nazwy przedmiotu */
+    color: #333; /* Kolor tekstu nazwy przedmiotu */
+    margin: 12px 0; /* Margines górny i dolny */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    flex-grow: 1; /* Umożliwienie rozciągania sekcji opisu */
+    display: flex; /* Użycie flexbox do układu tekstu */
+    align-items: center; /* Wyśrodkowanie tekstu w pionie */
+}
+
+.przedmiot-okazja div {
+    font-size: 1rem; /* Rozmiar czcionki opisu przedmiotu */
+    color: #555; /* Kolor tekstu opisu przedmiotu */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    margin-bottom: 12px; /* Margines dolny */
+}
+
+.add-btn-okazja {
+    background-color: #007bff; /* Kolor tła przycisku dodawania */
+    color: white; /* Kolor tekstu przycisku */
+    text-decoration: none; /* Usunięcie podkreślenia z linku */
+    padding: 7px 15px; /* Większy padding wewnętrzny */
+    border-radius: 6px; /* Zaokrąglenie rogów przycisku */
+    font-weight: bold; /* Pogrubienie tekstu */
+    margin-top: 15px; /* Margines górny */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    display: inline-block; /* Wyświetlanie jako element blokowy inline */
+    align-self: center; /* Wyśrodkowanie przycisku */
+}
+
+.add-btn-okazja:hover {
+    background-color: #0056b3; /* Ciemniejszy kolor przycisku po najechaniu */
+}
+
+.punkty {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4CAF50; /* Zielony kolor dla pozytywnego efektu */
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    background-color: #f0fff0; /* Jasny zielony tło */
+    text-align: center;
+}
+
+.punkty span {
+    font-size: 24px;
+    color: #2e7d32; /* Ciemniejszy zielony dla liczby punktów */
+}
+
+
+
+
+
+
+
+
+
+
+
+

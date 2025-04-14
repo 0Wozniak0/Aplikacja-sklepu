@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Historia Zamówień</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="sekcje/naglowek :: ShopHeader"></header>
+
+<div class="main-content">
+    <h1>Historia Zamówień</h1>
+    <table id="zamowieniaTabela">
+        <thead>
+        <tr>
+            <th>Data</th>
+            <th>Nazwa przedmiotu</th>
+            <th>Ilość</th>
+            <th>Cena</th>
+            <th>Suma</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="element, iterStat : ${historiaZamowien}">
+            <td>
+                <!-- Wyświetlanie daty tylko dla pierwszego elementu zamówienia -->
+                <span th:if="${iterStat.index == 0 || historiaZamowien[iterStat.index - 1].zamowienieId != element.zamowienieId}"
+                      th:text="${element.created}"></span>
+            </td>
+            <td th:text="${element.przedmiot.nazwa}"></td>
+            <td th:text="${element.licznik}"></td>
+            <td th:text="${element.cena} + ' zł'"></td>
+            <td>
+            <span th:if="${iterStat.last || (historiaZamowien[iterStat.index + 1]?.zamowienieId != element.zamowienieId)}"
+                  th:text="${laczneCeny[element.zamowienieId]} + ' zł'"></span>
+            </td>
+        </tr>
+        </tbody>
+
+
+    </table>
+</div>
+
+</body>
+</html>

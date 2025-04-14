@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sklep Internetowy</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="sekcje/naglowek :: ShopHeader"></header>
+
+<div class="main-content">
+    <!-- Formularz do wyszukiwania przedmiotów -->
+    <div class="search-form">
+        <h1>Wyszukaj Przedmioty</h1>
+        <form th:action="@{/admin/search}" method="get">
+            <input type="text" name="query" placeholder="Wyszukaj przedmiot..." required>
+            <button type="submit">Szukaj</button>
+        </form>
+    </div>
+
+    <!-- Formularz do dodawania przedmiotów -->
+    <div class="add-item-form">
+        <h1>Dodaj Przedmiot</h1>
+        <form th:action="@{/admin}" method="post">
+            <label>Nazwa</label>
+            <input type="text" name="nazwa" required>
+
+            <label>Cena</label>
+            <input type="number" min="0.01" step="0.01" name="cena" required>
+
+            <label>URL Obrazka</label>
+            <input type="text" name="imgUrl">
+
+            <label>Kategoria</label>
+            <select name="kategoriaId">
+                <option th:each="kategoria : ${kategorie}" th:value="${kategoria.id}" th:text="${kategoria.nazwa}"></option>
+            </select>
+
+
+            <button type="submit">Dodaj</button>
+        </form>
+    </div>
+
+    <!-- Formularz do dodawania specyfikacji -->
+    <div class="add-item-form">
+        <h1>Dodaj Specyfikację</h1>
+
+        <!-- Sekcja na komunikat o błędzie -->
+        <div th:if="${blad}" style="color: red;">
+            <p th:text="${blad}"></p>
+        </div>
+
+        <form th:action="@{/admin/specyfikacje}" method="post">
+            <label>ID Przedmiotu</label>
+            <input type="number" name="przedmiotId" required>
+            <label>Nazwa Specyfikacji</label>
+            <input type="text" name="nazwa" required>
+            <label>Wartość</label>
+            <input type="text" name="wartosc" required>
+            <button type="submit">Dodaj Specyfikację</button>
+        </form>
+    </div>
+</div>
+
+<div class="main-content">
+    <!-- Nagłówek listy przedmiotów -->
+    <div class="item-list-header">
+        <h2>Lista dostępnych przedmiotów w sklepie</h2>
+    </div>
+
+    <!-- Wyświetlenie listy przedmiotów -->
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nazwa</th>
+            <th>Cena</th>
+            <th>Cena Promocyjna</th>
+            <th>Kategoria</th>
+            <th>Obrazek</th>
+            <th>Status</th>
+            <th>Promocje/Cena</th>
+            <th>Specyfikacje</th> <!-- Nowa kolumna dla specyfikacji -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="przedmiot : ${przedmioty}">
+            <td th:text="${przedmiot.id}"></td>
+            <td th:text="${przedmiot.nazwa}"></td>
+            <td th:text="${przedmiot.cena}"></td>
+            <td th:text="${przedmiot.cenaPromocyjna != null ? przedmiot.cenaPromocyjna : 'Brak'}"></td>
+            <td th:if="${przedmiot.kategoria != null}" th:text="${przedmiot.kategoria.nazwa}">Brak kategorii</td>
+            <td>
+                <img th:src="@{${przedmiot.imgUrl}}" alt="Obrazek przedmiotu" style="width: 100px;">
+            </td>
+            <td>
+                <a th:href="@{/admin/zmienDostepnosc/{id}(id=${przedmiot.id})}">
+                    <button th:text="${przedmiot.dostepny ? 'Oznacz jako niedostępny' : 'Oznacz jako dostępny'}"></button>
+                </a>
+                <a th:href="@{/admin/zmienNowosc/{id}(id=${przedmiot.id})}">
+                    <button th:text="${przedmiot.nowosc ? 'Usuń z nowości' : 'Dodaj do nowości'}"></button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{'/admin/promocje/' + ${przedmiot.id}}" class="btn-promocje">Zarządzaj Promocją/Ceną</a> <!-- Link do zarządzania promocją -->
+            </td>
+            <td>
+                <a th:href="@{'/admin/specyfikacje/' + ${przedmiot.id}}" class="btn-specyfikacje">Zarządzaj Specyfikacjami</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edytuj Specyfikację</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<header th:replace="sekcje/naglowek :: ShopHeader"></header>
+
+<div class="main-content">
+    <h1>Edytuj Specyfikację</h1>
+    <form th:action="@{/admin/specyfikacja/edytuj}" method="post">
+        <input type="hidden" th:name="id" th:value="${specyfikacja.id}"/>
+        <input type="hidden" th:name="przedmiotId" th:value="${specyfikacja.przedmiotId}"/> <!-- Ukryte pole do przedmiotId -->
+
+        <label>Nazwa Specyfikacji</label>
+        <input type="text" th:name="nazwa" th:value="${specyfikacja.nazwa}" required/>
+
+        <label>Wartość</label>
+        <input type="text" th:name="wartosc" th:value="${specyfikacja.wartosc}" required/>
+
+        <button type="submit">Zapisz</button>
+    </form>
+</div>
+</body>
+</html>
